@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import DemandaDePeca
+from .models import DemandaDePeca, Usuario
 from .serializers import DemandaSerializer
 
 
@@ -8,10 +8,10 @@ class DemandaViewSet(ModelViewSet):
     queryset = DemandaDePeca.objects.all()
 
     def get_queryset(self): # Filtra se o usuário é Administrador ou Anunciante
-        user = self.request.user
-        if user.is_administrador or user.is_superuser:
+        usuario = self.request.user
+        if usuario.administrador or usuario.is_superuser:
             return DemandaDePeca.objects.all()
-        return DemandaDePeca.objects.filter(anunciante=user)
+        return DemandaDePeca.objects.filter(anunciante=usuario)
      
     def perform_create(self, serializer): # Adiciona o usuário como Anunciante
         anunciante = None

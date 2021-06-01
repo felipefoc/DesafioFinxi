@@ -113,7 +113,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-AUTH_USER_MODEL = 'app.User'
+AUTH_USER_MODEL = 'app.Usuario'
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -127,7 +127,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+FIXTURE_DIRS = [
+    os.path.join(BASE_DIR, 'app\\fixtures\\'),
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
