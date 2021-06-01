@@ -6,6 +6,8 @@ router = routers.DefaultRouter()
 router.register(r'demanda', views.DemandaViewSet, 'demandas')
 
 
+
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('finalizar/<pk>',  views.FinalizarDemandaAPIView.as_view(), name='finalizar')
 ]

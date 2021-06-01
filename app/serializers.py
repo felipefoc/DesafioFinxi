@@ -22,3 +22,5 @@ class DemandaSerializer(serializers.ModelSerializer):
         rep = super().to_representation(instance)
         rep['descricao'] = PecaSerializer(instance.descricao).data
         return rep
+    
+        

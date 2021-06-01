@@ -1,10 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import AbstractUser
 
-class Usuario(AbstractUser):
-    administrador = models.BooleanField(default=False)
-    anunciante = models.BooleanField(default=True)
 
 class Peca(models.Model):
     modelo = models.CharField(max_length=100)
