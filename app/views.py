@@ -1,14 +1,14 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import UpdateAPIView
 from rest_framework.response import Response
+from rest_framework import status
 from django.http import Http404
-from .models import DemandaDePeca, Usuario
+from .models import DemandaDePeca
 from .serializers import DemandaSerializer
 
 
 class DemandaViewSet(ModelViewSet):
     serializer_class = DemandaSerializer
-    queryset = None
 
     def get_queryset(self): # Filtra se o usuário é Administrador ou Anunciante
         usuario = self.request.user
@@ -21,9 +21,20 @@ class DemandaViewSet(ModelViewSet):
         if self.request and hasattr(self.request, "user"):
             anunciante = self.request.user
         serializer.save(anunciante=anunciante)
+    
+    def destroy(self, request, *args, **kwargs):
+        data = {
+            'messages': 'Demanda removida'
+        }
+        try:
+            instance = self.get_object()
+            self.perform_destroy(instance)
+        except Http404:
+            pass
+        return Response(data, status=status.HTTP_204_NO_CONTENT)
+
 
 class FinalizarDemandaAPIView(UpdateAPIView):
-    queryset = None
     serializer_class = DemandaSerializer
     lookup_field = 'pk'
     

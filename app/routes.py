@@ -8,6 +8,6 @@ router.register(r'demanda', views.DemandaViewSet, 'demandas')
 
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('finalizar/<pk>',  views.FinalizarDemandaAPIView.as_view(), name='finalizar')
+    path('api/', include(router.urls)),
+    path('api/demanda/finalizar/<pk>',  views.FinalizarDemandaAPIView.as_view(), name='finalizar')
 ]

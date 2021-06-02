@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "7ac64e39-d79b-4c85-a704-2b3e99e4ecb2",
+		"name": "Finxi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Todas as demandas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 836d9cbd78908a92b133014906f54acd0fb98a20",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/demanda",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Demanda especifica",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 836d9cbd78908a92b133014906f54acd0fb98a20",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/demanda/7/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar dados da demanda",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 836d9cbd78908a92b133014906f54acd0fb98a20",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "informacoes_de_contato",
+							"value": "2132510742",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/demanda/1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar demanda",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 836d9cbd78908a92b133014906f54acd0fb98a20",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:8000/api/demanda/6/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda",
+						"6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar demanda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 836d9cbd78908a92b133014906f54acd0fb98a20",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "endereco_de_entrega",
+							"value": "Rua teste, 20251110, numero 25",
+							"type": "text"
+						},
+						{
+							"key": "informacoes_de_contato",
+							"value": "(21) 96692-9828",
+							"type": "text"
+						},
+						{
+							"key": "descricao",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/demanda/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar Demanda",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 836d9cbd78908a92b133014906f54acd0fb98a20",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/demanda/finalizar/7/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda",
+						"finalizar",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

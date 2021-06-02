@@ -6,25 +6,25 @@ from django.utils.html import format_html
 
 # Register your models here.
 
-admin.site.register(Peca)
+@admin.register(Peca)
+class PecaProfileAdmin(admin.ModelAdmin):
+    list_display = ['modelo', 'descricao']
 
 @admin.register(DemandaDePeca)
 class DemandaProfileAdmin(admin.ModelAdmin):
-    list_display = ['status_de_finalizacao']
+    list_display = ['anunciante', 'informacoes_de_contato', 'finalizado']
 
-    def status_de_finalizacao(self, obj):
-        if obj.status_de_finalizacao:
+    def finalizado(self, obj):
+        if obj.status_de_finalizacao == True:
             return True
         return False
-    status_de_finalizacao.boolean = True
+    finalizado.boolean = True
 
 @admin.register(Usuario)
 class UsuarioProfileAdmin(admin.ModelAdmin):
     list_display = ['username', 'administrador', 'anunciante', 'full_name']
-
+    model = UserAdmin
     def full_name(self, obj):
         return f'{obj.first_name} {obj.last_name}'
-
-
 
 admin.site.site_header = 'Finxi | Django MVC'

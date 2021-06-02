@@ -17,10 +17,11 @@ class DemandaSerializer(serializers.ModelSerializer):
     class Meta:
         model = DemandaDePeca
         fields = "__all__"
-    
+        read_only_fields = ['id', 'anunciante']
+              
     def to_representation(self, instance):
         rep = super().to_representation(instance)
         rep['descricao'] = PecaSerializer(instance.descricao).data
         return rep
     
-        
+
