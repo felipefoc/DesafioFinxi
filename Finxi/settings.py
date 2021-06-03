@@ -11,17 +11,19 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'nq7+#g50l04uz*i30sj!78a^3(py=2l)^c5)%#)pe$y&1o+3y@'
+SECRET_KEY = os.getenv("SECRET_KEY_ENV")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
