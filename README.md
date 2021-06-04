@@ -10,7 +10,7 @@ O desafio é desenvolver uma pequena aplicação que possibilite a publicação 
 - Docker
 
 
-- ### Executando o programa usando Docker Compose
+### Executando o programa usando Docker Compose
 
 Antes de mais nada, clone o repositório.
 
